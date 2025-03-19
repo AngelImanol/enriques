@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - Enrique's Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/map-location.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div class="splash-logo">
+            <img src="img/logo.jpg" alt="Enrique's Restaurant Logo">
+            <div class="splash-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Header with Logo and Back Button -->
+        <header class="app-header">
+            <div class="header-back">
+                <a href="index.html" class="btn-icon">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Enrique's Restaurant Logo">
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Product Image Banner -->
+            <div class="product-banner">
+                <img src="img/hamburguesa.jpg" alt="Hamburguesa Clásica" id="product-image">
+            </div>
+
+            <!-- Product Details -->
+            <section class="product-details">
+                <div class="product-header">
+                    <h1 id="product-name">Hamburguesa Clásica</h1>
+                    <p class="product-price" id="product-price">$120</p>
+                </div>
+                
+                <div class="product-description">
+                    <p id="product-description">Nuestra hamburguesa tradicional con carne de res 100% natural, queso americano, lechuga fresca, tomate, cebolla y nuestra salsa especial, todo en un pan recién horneado.</p>
+                </div>
+                
+                <!-- Required Options Section -->
+                <div class="options-section required">
+                    <h2>Término de la carne <span class="required-badge">Obligatorio</span></h2>
+                    <div class="option-group">
+                        <label class="option-item">
+                            <input type="radio" name="meat-doneness" value="medium-rare" required>
+                            <span class="option-content">
+                                <span class="option-text">Término medio</span>
+                                <span class="option-included">Recomendado</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="meat-doneness" value="medium">
+                            <span class="option-content">
+                                <span class="option-text">Tres cuartos</span>
+                                <span class="option-included">Popular</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="meat-doneness" value="well-done">
+                            <span class="option-content">
+                                <span class="option-text">Bien cocido</span>
+                            </span>
+                        </label>
+                    </div>
+                    <p class="validation-message">Por favor, selecciona una opción</p>
+                </div>
+                
+                <!-- Required Side Options Section -->
+                <div class="options-section required">
+                    <h2>Selecciona tu acompañamiento <span class="required-badge">Obligatorio</span></h2>
+                    <div class="option-group">
+                        <label class="option-item">
+                            <input type="radio" name="fries-type" value="normal" required>
+                            <span class="option-content">
+                                <span class="option-text">Papas normales</span>
+                                <span class="option-included">Incluido</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="fries-type" value="criss-cut">
+                            <span class="option-content">
+                                <span class="option-text">Papas criss cut</span>
+                                <span class="option-price">+$15</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="radio" name="fries-type" value="onion-rings">
+                            <span class="option-content">
+                                <span class="option-text">Aros de cebolla</span>
+                                <span class="option-price">+$20</span>
+                            </span>
+                        </label>
+                    </div>
+                    <p class="validation-message">Por favor, selecciona una opción</p>
+                </div>
+                
+                <!-- Extras Section -->
+                <div class="options-section">
+                    <h2>Extras</h2>
+                    <div class="option-group">
+                        <label class="option-item">
+                            <input type="checkbox" name="extras" value="cheese">
+                            <span class="option-content">
+                                <span class="option-text">Extra queso</span>
+                                <span class="option-price">+$10</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="extras" value="bacon">
+                            <span class="option-content">
+                                <span class="option-text">Tocino</span>
+                                <span class="option-price">+$20</span>
+                            </span>
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" name="extras" value="guacamole">
+                            <span class="option-content">
+                                <span class="option-text">Guacamole</span>
+                                <span class="option-price">+$15</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Special Instructions -->
+                <div class="options-section">
+                    <h2>Instrucciones especiales</h2>
+                    <textarea class="special-instructions" placeholder="Ej.: Sin cebolla, salsa aparte, etc."></textarea>
+                </div>
+                
+                <!-- Quantity Selector -->
+                <div class="options-section">
+                    <h2>Cantidad</h2>
+                    <div class="quantity-selector-container">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn decrease">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="quantity-input" id="quantity">
+                            <button class="quantity-btn increase">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add to Cart Button (moved from fixed position) -->
+                <div class="add-to-cart-section">
+                    <button class="btn-add-to-cart">
+                        Agregar <span id="qty-display">1</span> al pedido • <span id="total-price">$120</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Floating Cart Button -->
+        <div class="floating-cart-button" id="floating-cart-button">
+            <div class="cart-button-left">
+                <div class="cart-button-count">0</div>
+                <span class="cart-button-text">Ver carrito</span>
+            </div>
+            <div class="cart-button-right">$0</div>
+        </div>
+        
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="cart-modal">
+            <div class="cart-modal-content">
+                <div class="cart-modal-header">
+                    <h2>Tu Carrito</h2>
+                    <button class="close-cart-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="cart-modal-body">
+                    <div id="cart-items" class="cart-items">
+                        <!-- Cart items will be inserted here dynamically -->
+                    </div>
+                    <div id="empty-cart-message" class="empty-cart-message">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Tu carrito está vacío</p>
+                        <a href="#" class="btn-primary">Ver menú</a>
+                    </div>
+                </div>
+                <div class="cart-modal-footer">
+                    <div class="cart-totals">
+                        <div class="cart-total-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="cart-total-row">
+                            <span>Envío:</span>
+                            <span id="cart-shipping">$0.00</span>
+                        </div>
+                        <div class="cart-total-row total">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                    </div>
+                    <button id="checkout-btn" class="btn-checkout">
+                        Proceder al pago
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <i class="fas fa-utensils"></i>
+                <span>Menú</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrito</span>
+            </a>
+        </nav>
+        
+        <!-- Powered by footer -->
+        <div class="powered-by">
+            <span>Powered by: <a href="https://issmar.com" target="_blank">issmar.com</a></span>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/maps-functions.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/cart.js"></script>
+    <!-- Google Maps API -->
+    <script>
+        // Define initMap function globally before loading the API
+        window.initMap = function() {
+            console.log("Google Maps API initialized successfully");
+            
+            // Initialize services we'll need
+            if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
+                window.geocoder = new google.maps.Geocoder();
+                window.placesService = new google.maps.places.PlacesService(
+                    document.createElement('div') // Dummy element required for PlacesService
+                );
+                
+                // Dispatch an event to inform our app that Maps is ready
+                document.dispatchEvent(new Event('google-maps-ready'));
+            }
+        };
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfvArRHFo2RhWUqA0EFZt-khQW1EVaDnc&libraries=places,geometry&callback=initMap">
+    </script>
+</body>
+</html>
+

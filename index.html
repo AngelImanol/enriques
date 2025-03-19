@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this for better mobile geolocation support -->
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), interest-cohort=()">
+    <title>Enrique's Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/map-location.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen">
+        <div class="splash-logo">
+            <img src="img/logo.jpg" alt="Enrique's Restaurant Logo">
+            <div class="splash-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Header with Logo -->
+        <header class="app-header">
+            <div class="logo">
+                <img src="img/logo.jpg" alt="Enrique's Restaurant Logo">
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon"><i class="fas fa-search"></i></button>
+                <button class="btn-icon"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Delivery Type Selector -->
+            <section class="delivery-type-container">
+                <div class="delivery-type-selector">
+                    <div class="delivery-option pickup active" data-type="pickup">
+                        <i class="fas fa-store"></i>
+                        <span>Recoger</span>
+                    </div>
+                    <div class="delivery-option delivery" data-type="delivery">
+                        <i class="fas fa-motorcycle"></i>
+                        <span>Domicilio</span>
+                    </div>
+                    <div class="selector-bg"></div>
+                </div>
+            </section>
+
+            <!-- Promotional Banner -->
+            <section class="promo-banner">
+                <div class="banner-slider">
+                    <div class="banner-slide active">
+                        <img src="img/promo1.jpg" alt="Promoción 1">
+                        <div class="banner-content">
+                            <h2>¡Oferta especial!</h2>
+                            <p>2x1 en todas las hamburguesas premium</p>
+                            <button class="btn-primary">Ver oferta</button>
+                        </div>
+                    </div>
+                    <div class="banner-slide">
+                        <img src="img/promo2.jpg" alt="Promoción 2">
+                        <div class="banner-content">
+                            <h2>¡Nuevos Boneless!</h2>
+                            <p>Prueba nuestros nuevos sabores</p>
+                            <button class="btn-primary">Ordenar ahora</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                </div>
+            </section>
+
+            <!-- Social Media Links -->
+            <section class="social-media">
+                <h3>Síguenos en redes</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="filters">
+                <div class="filter-scroll">
+                    <button class="filter-btn active" data-filter="all">Todo</button>
+                    <button class="filter-btn" data-filter="hamburguesas">Hamburguesas</button>
+                    <button class="filter-btn" data-filter="boneless">Boneless</button>
+                    <button class="filter-btn" data-filter="papas">Papas</button>
+                    <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+                </div>
+                <button class="advanced-filter-btn">
+                    <i class="fas fa-sliders-h"></i>
+                </button>
+            </section>
+
+            <!-- Advanced Filters Modal -->
+            <div class="advanced-filters-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Filtros avanzados</h3>
+                        <button class="close-modal"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="filter-group">
+                            <h4>Rango de precio</h4>
+                            <div class="range-slider">
+                                <input type="range" min="0" max="500" value="250" class="price-range">
+                                <div class="range-values">
+                                    <span>$0</span>
+                                    <span>$500</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Costo de envío</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" name="shipping" value="free">
+                                <span>Envío gratis</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="shipping" value="low">
+                                <span>Menos de $30</span>
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Ofertas</h4>
+                            <label class="checkbox">
+                                <input type="checkbox" name="offers" value="discounts">
+                                <span>Con descuento</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="offers" value="promos">
+                                <span>Promociones</span>
+                            </label>
+                        </div>
+                        <div class="filter-group">
+                            <h4>Calificación</h4>
+                            <div class="star-filter">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>3+ estrellas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-secondary">Limpiar filtros</button>
+                        <button class="btn-primary">Aplicar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <section class="products">
+                <div class="product-card" data-category="hamburguesas">
+                    <div class="product-image">
+                        <img src="img/hamburguesa.jpg" alt="Hamburguesa Clásica">
+                        <span class="product-badge">Más vendido</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Hamburguesa Clásica</h3>
+                        <p class="product-description">Nuestra hamburguesa tradicional con queso, lechuga y tomate</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                        <div class="product-price-actions">
+                            <span class="product-price">$120</span>
+                            <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="boneless">
+                    <div class="product-image">
+                        <img src="img/boneless.jpg" alt="Boneless BBQ">
+                        <span class="product-badge promo">2x1</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Boneless BBQ</h3>
+                        <p class="product-description">Deliciosos boneless bañados en salsa BBQ</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </div>
+                        <div class="product-price-actions">
+                            <span class="product-price">$150</span>
+                            <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="boneless">
+                    <div class="product-image">
+                        <img src="img/hotdog.jpg" alt="Boneless BBQ">
+                        <span class="product-badge promo">2x1</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Boneless BBQ</h3>
+                        <p class="product-description">Deliciosos boneless bañados en salsa BBQ</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </div>
+                        <div class="product-price-actions">
+                            <span class="product-price">$150</span>
+                            <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card" data-category="boneless">
+                    <div class="product-image">
+                        <img src="img/hotdog.jpg" alt="Boneless BBQ">
+                        <span class="product-badge promo">2x1</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Boneless BBQ</h3>
+                        <p class="product-description">Deliciosos boneless bañados en salsa BBQ</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0</span>
+                        </div>
+                        <div class="product-price-actions">
+                            <span class="product-price">$150</span>
+                            <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Cart Button -->
+        <div class="floating-cart-button" id="floating-cart-button">
+            <div class="cart-button-left">
+                <div class="cart-button-count">0</div>
+                <span class="cart-button-text">Ver carrito</span>
+            </div>
+            <div class="cart-button-right">$0</div>
+        </div>
+
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="cart-modal">
+            <div class="cart-modal-content">
+                <div class="cart-modal-header">
+                    <h2>Tu Carrito</h2>
+                    <button class="close-cart-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="cart-modal-body">
+                    <div id="cart-items" class="cart-items">
+                        <!-- Cart items will be inserted here dynamically -->
+                    </div>
+                    <div id="empty-cart-message" class="empty-cart-message">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Tu carrito está vacío</p>
+                        <a href="#" class="btn-primary">Ver menú</a>
+                    </div>
+                </div>
+                <div class="cart-modal-footer">
+                    <div class="cart-totals">
+                        <div class="cart-total-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="cart-total-row">
+                            <span>Envío:</span>
+                            <span id="cart-shipping">$0.00</span>
+                        </div>
+                        <div class="cart-total-row total">
+                            <span>Total:</span>
+                            <span id="cart-total">$0.00</span>
+                        </div>
+                    </div>
+                    <button id="checkout-btn" class="btn-checkout">
+                        Proceder al pago
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            
+            <a href="#" class="nav-item">
+                <i class="fas fa-utensils"></i>
+                <span>Menú</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrito</span>
+            </a>
+        </nav>
+        
+        <!-- Powered by footer -->
+        <div class="powered-by">
+            <span>Powered by: <a href="https://issmar.com" target="_blank">issmar.com</a></span>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/maps-functions.js"></script>
+    <script src="js/cart.js"></script>
+    <!-- Google Maps API -->
+    <script>
+        // Define initMap function globally before loading the API
+        window.initMap = function() {
+            console.log("Google Maps API initialized successfully");
+            
+            // Initialize services we'll need
+            if (typeof google !== 'undefined' && typeof google.maps !== 'undefined') {
+                window.geocoder = new google.maps.Geocoder();
+                window.placesService = new google.maps.places.PlacesService(
+                    document.createElement('div') // Dummy element required for PlacesService
+                );
+                
+                // Dispatch an event to inform our app that Maps is ready
+                document.dispatchEvent(new Event('google-maps-ready'));
+            }
+        };
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfvArRHFo2RhWUqA0EFZt-khQW1EVaDnc&libraries=places,geometry&callback=initMap">
+    </script>
+</body>
+</html>
